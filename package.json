@@ -1,0 +1,22 @@
+{
+  "name": "tugas_a3_jquery",
+  "version": "1.0.0",
+  "description": "tugas_A3_Farhan_Amin",
+  "main": "farhanamin.js",
+  "scripts": {
+    "test": "tugas"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Farhanamin23/formvalidationpendaftaran.git"
+  },
+  "author": "farhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Farhanamin23/formvalidationpendaftaran/issues"
+  },
+  "homepage": "https://github.com/Farhanamin23/formvalidationpendaftaran#readme",
+  "dependencies": {
+    "tugas_a3_jquery": "^1.0.0"
+  }
+}

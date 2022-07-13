@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <title>Form Pendaftaran</title>
     <meta charset="UTF-8">
@@ -9,9 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
     <body>
+    <div class="form">  
         <div id="wrapper">
-            <div id="successMessage">Anda Berhasil Terdaftar!</div>
+            <div id="successMessage">Pendafataran Anda Berhasil!</div>
             <div id="errorMessage"></div>
+            <h4>Form Pendaftaran</h4>
             <div class = "form-element">
                 <label for = "nama">Nama Lengkap</label>
                 <input type = "text" name = "nama" id = "nama" placeholder = "Masukan Nama Lengkap Anda">
@@ -19,6 +21,15 @@
             <div class = "form-element">
                 <label for = "addres">Alamat</label>
                 <input type = "text" name = "addres" id = "addres" placeholder = "Masukan Alamat Anda">
+            </div>
+            <div class = "form-element">
+                <label for = "TempatLahir">Tempat Lahir</label>
+                <input type = "text" name = "tlahir" id = "tlahir" placeholder = "Masukan Tempat Lahir Anda">
+            </div>
+            <div>
+            <div class="form-element">
+                <label for="TanggalLahir">Tanggal Lahir:</label>
+                <input type="date" id="lahir" name="lahir" placeholder="TanggalLahir">
             </div>
             <div class="form-element">
                 <label for="gender">Jenis Kelamin:</label>
@@ -49,74 +60,27 @@
             </div>
             <div class="checkbox">
                 <label><input type="checkbox" name="Check" id="Check"/><p>Klik Check Box Jika Anda Setuju Dengan Peraturan Kami</p> </label>
-                </div>
+            </div>
+            <section class="form-element">
+            <fieldset class="captchaField">
+                <span id="SuccessMessage" class="success">Captcha Benar! Sekarang Anda Bisa Daftar , </span>
+                <input type="text" id="UserCaptchaCode" class="CaptchaTxtField" placeholder='Masukan Captcha Anda'>
+                <span id="WrongCaptchaError" class="error"></span>
+                <div class='CaptchaWrap'>
+            <div id="CaptchaImageCode" class="CaptchaTxtField">
+                <canvas id="CapCode" class="capcode" width="300" height="80"></canvas>
+            </div> 
+                <input type="button" class="ReloadBtn"  value="`" onclick='CreateCaptcha();'>
+            </div>
+                <input type="button" class="btnSubmit" onclick="CheckCaptcha(); Submit();" value="Submit">
+            </fieldset>
+            </section>
             <div class = "form-element">
                 <input type = "submit" id = "submitButton" value = "DAFTAR">
             </div>
         </div>
-<script>
-function isEmail(email) {
-    let regex = /^([a-zA-Z0-9_.@-])+$/;
-    return regex.test(email);
-}
-function isNama(nama) {
-    let regex = /^([a-z A-Z])+$/;
-    return regex.test(nama);
-} 
-$("#submitButton").click(function(){
-    
-    let errorMessage = "";
-    let fieldsMissing = "";
-    
-    if ($("#nama").val() == ""){
-        fieldsMissing += "<br>Nama";
-    }
-    if ($("#addres").val() == ""){
-        fieldsMissing += "<br>Alamat";
-    }
-    if ($("#pos").val() == ""){
-        fieldsMissing += "<br>Kode Pos";
-    }
-    if ($("#email").val() == ""){
-        fieldsMissing += "<br>Email";
-    }
-    if ($("#telephone").val() == ""){
-        fieldsMissing += "<br>Nomor Hp";
-    }
-    if ($("#password").val() == ""){
-        fieldsMissing += "<br>Password";
-    }
-    if ($("#Check").val() == ""){
-        fieldsMissing += "<br>Check";
-    }
-    if ($("#passwordConfirm").val() == ""){
-        fieldsMissing += "<br>Confirm Password";
-    }
-    if(fieldsMissing != ""){
-        errorMessage += "<p>Isi Data Yang Belum Terisi" + fieldsMissing; 
-    }
-    if (isNama($("#nama").val()) == false){
-        errorMessage += "<p>Nama Tidak Boleh Di Isi Dengan Angka.</p>";
-    }
-    if (isEmail($("#email").val()) == false){
-        errorMessage += "<p>Email Anda Tidak Valid.</p>";
-    }
-    if ($.isNumeric($("#pos").val()) == false){
-        errorMessage += "<p>Kode Pos Harus Berupa Angka.</p>";
-    }
-    if ($.isNumeric($("#telephone").val()) == false){
-        errorMessage += "<p>No Hp Harus Berupa Angka.</p>";
-    }
-    if($("#password").val() != $("#passwordConfirm").val()){   
-        errorMessage += "<p>Password Anda Tidak Sama</p>";                
-    }
-    if (errorMessage != ""){
-        $("#errorMessage").html(errorMessage);
-    } else{
-        $("#successMessage").show();
-        $("#errorMessage").hide();
-    }    
-});
-</script>
-    </body>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+    <script  src="/js/jquery.js"></script>
+</body>
 </html>    
